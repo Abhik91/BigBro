@@ -1,1 +1,1 @@
-test folder for aws scripts
+folder for aws scripts
