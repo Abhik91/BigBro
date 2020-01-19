@@ -11,12 +11,12 @@ def lambda_handler(event, context):
     
     
     
-    response2=client.compare_faces(SimilarityThreshold=70,
+    response2=client.compare_faces(SimilarityThreshold=90,
                                   SourceImage={'S3Object':{'Bucket':"hackarizonaasu",'Name':"1.jpg"}},
                                   TargetImage={'S3Object':{'Bucket':"hackarizonaasu",'Name':test_img}})
     s3 = boto3.resource('s3')
              
-    response=client.compare_faces(SimilarityThreshold=70,
+    response=client.compare_faces(SimilarityThreshold=90,
                                   SourceImage={'S3Object':{'Bucket':"hackarizonaasu",'Name':"Es1.jpg"}},
                                   TargetImage={'S3Object':{'Bucket':"hackarizonaasu",'Name':test_img}})
 
@@ -26,9 +26,7 @@ def lambda_handler(event, context):
         message=client2.publish(TargetArn='arn:aws:sns:us-west-2:451410343613:Face-Recognition-SNS',Message=tosend,Subject="Uploaded Image Label")
         file_name = "intruder.jpg"
         s3.Object('hackarizonaasu',file_name).copy_from(CopySource='hackarizonaasu/'+test_img)
-        
 
-    
     return {
         'statusCode': 200,
         'body': json.dumps('Hello from Lambda!')
