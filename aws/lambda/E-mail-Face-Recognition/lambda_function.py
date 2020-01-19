@@ -1,7 +1,5 @@
-import json
 import boto3
 import json
-import urllib
 
 def lambda_handler(event, context):
     
@@ -10,7 +8,6 @@ def lambda_handler(event, context):
     client2 = boto3.client('sns')
     
     test_img=str(dt).strip()
-    #test_img = "suspect.jpg"
     
     
     
@@ -18,20 +15,7 @@ def lambda_handler(event, context):
                                   SourceImage={'S3Object':{'Bucket':"hackarizonaasu",'Name':"1.jpg"}},
                                   TargetImage={'S3Object':{'Bucket':"hackarizonaasu",'Name':test_img}})
     s3 = boto3.resource('s3')
-
-
-    """
-    print ('Bazinga')
-    for faceMatch in response2['FaceMatches']:
-        print ('Hola')
-        position = faceMatch['Face']['BoundingBox']
-        confidence = str(faceMatch['Face']['Confidence'])
-        print('The face of Krishna is found at ' +
-               str(position['Left']) + ' ' +
-               str(position['Top']) +
-               ' matches with ' + confidence + '% confidence')
-    """
-               
+             
     response=client.compare_faces(SimilarityThreshold=70,
                                   SourceImage={'S3Object':{'Bucket':"hackarizonaasu",'Name':"Es1.jpg"}},
                                   TargetImage={'S3Object':{'Bucket':"hackarizonaasu",'Name':test_img}})
@@ -43,19 +27,7 @@ def lambda_handler(event, context):
         file_name = "intruder.jpg"
         s3.Object('hackarizonaasu',file_name).copy_from(CopySource='hackarizonaasu/'+test_img)
         
-    # TODO: write code...)
-    
-    """
-    for faceMatch in response['FaceMatches']:
-        print ('Hola')
-        position = faceMatch['Face']['BoundingBox']
-        confidence = str(faceMatch['Face']['Confidence'])
-        print('The face of Krishna is found at ' +
-               str(position['Left']) + ' ' +
-               str(position['Top']) +
-               ' matches with ' + confidence + '% confidence')
-    """
-    # TODO implement
+
     
     return {
         'statusCode': 200,
