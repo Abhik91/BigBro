@@ -1,2 +1,2 @@
 Main lambda files:
-
+Lambda_function.py is the main lambda function that we used to compare between suspect image and family images. This lambda function is triggered whenever a new picture is uploaded to the AWS s3 bucket (hackarizonaasu). Images are uploaded to AWS only if local face detection algorithm detects a face. It then uses Amazon Rekognition to compare and determine if the suspect is an intruder or not. If the suspect is an intruder, an alert will be sent to the owner's email. This alert contains an image of the suspect in a website link. If the suspect is not an intruder, no alerts will be created.
