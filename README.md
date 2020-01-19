@@ -21,3 +21,9 @@ Directory Structure:
 	- capture.py
 	- haarcascade_frontalface_default.xml
 	- suspect.jpg (this file is created when a person is detected in the live feed and sent to the AWS server)
+
+
+Dependencies:
+- Local side
+	- cv2
+	- boto
