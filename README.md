@@ -10,14 +10,14 @@ The main idea is to monitor the inside of the structure, detect the presence of 
 
 Directory Structure:
 - AWS (server side directory)
-	- lambda (lambda functions that contain triggers linked to s3 bucket upload)
+	- lambda (lambda functions that contain triggers linked to s3 bucket upload) (Python 3.6)
 		- E-mail-Face-Recognition
 			-lambda_function.py
 	- images (stored on the s3 bucket 'hackarizonaasu')
 		- all family members images...
 		- suspect.jpg
 		- intruder.jpg
-- Capture (local directory)
+- Capture (local directory) (Python 3.8)
 	- capture.py
 	- haarcascade_frontalface_default.xml
 	- suspect.jpg (this file is created when a person is detected in the live feed and sent to the AWS server)
