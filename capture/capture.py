@@ -7,8 +7,9 @@ from boto.s3.connection import S3Connection
 import time
 import datetime
 
-AWS_ACCESS_KEY_ID = 'AKIAWSGRHG26TQPSTHWG'
-AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
 
 bucket_name = 'hackarizonaasu'
 conn = boto.connect_s3(AWS_ACCESS_KEY_ID,
