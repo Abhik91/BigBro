@@ -10,7 +10,7 @@ The main idea is to monitor the inside of the structure, detect the presence of 
 
 Directory Structure:
 - AWS (server side directory)
-	- Lambda (lambda functions that contain triggers linked to s3 bucket upload)
+	- lambda (lambda functions that contain triggers linked to s3 bucket upload)
 		- E-mail-Face-Recognition
 			-lambda_function.py
 	- images (stored on the s3 bucket 'hackarizonaasu')
